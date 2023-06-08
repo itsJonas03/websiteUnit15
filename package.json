@@ -21,12 +21,12 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "git --work-tree=./build --git-dir=./build/.git push -f origin HEAD:gh-pages",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
+  },  
   "eslintConfig": {
     "extends": [
       "react-app",
