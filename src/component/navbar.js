@@ -14,7 +14,7 @@ const Header = () => {
             <Link to="/profile">Profile</Link>
           </li>
           <li>
-            <Link to="/course">Course</Link>
+            <Link to="https://www.w3schools.com/">Course</Link>
           </li>
           <li>
             <Link to="/apply">Apply</Link>
