@@ -1,5 +1,4 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
 import Experience from './descProfile';
 
 const Profile = () => {
@@ -14,11 +13,9 @@ const Profile = () => {
           Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
       </div>
-      <Grid container spacing={2}>
-        <Grid item>
-          <Experience/>
-        </Grid>
-      </Grid>
+      <div className='text-container'>
+        <Experience/>
+      </div>
     </div>
   );
 };

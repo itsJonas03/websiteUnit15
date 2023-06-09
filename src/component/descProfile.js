@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
 import "../css/descProfile.css";
+
 const experience = [
   {
     company: "Trainee 1",
@@ -75,11 +74,7 @@ function Experience() {
           {Object.keys(desc).map((key, index) => {
             return (
               <div key={index} className="experience-desc">
-                <FontAwesomeIcon
-                  icon={faAngleDoubleRight}
-                  className="experience-icon"
-                ></FontAwesomeIcon>
-                <p>{desc[key]}</p>
+                <p>- {desc[key]}</p>
               </div>
             );
           })}

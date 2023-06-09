@@ -1,24 +1,37 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import Header from './component/navbar';
 import HomePage from './component/homepage';
 import Profile from './component/profile';
 import Apply from './component/apply';
 
 const App = () => {
+  useEffect(() => {
+    const handleNavigation = () => {
+      const path = window.location.pathname;
+      if (path === '/homepage') {
+        setContent(<HomePage />);
+      } else if (path === '/profile') {
+        setContent(<Profile />);
+      } else if (path === '/apply') {
+        setContent(<Apply />);
+      }
+    };
+
+    handleNavigation(); 
+
+    window.addEventListener('popstate', handleNavigation); 
+    return () => {
+      window.removeEventListener('popstate', handleNavigation); 
+    };
+  }, []);
+
+  const [content, setContent] = React.useState(null);
+
   return (
-    <Router>
-      <div className="App">
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/homepage" element={<HomePage />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/course" element={<a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer">Course</a>} />
-          <Route path="/apply" element={<Apply />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="App">
+      <Header />
+      <div>{content}</div>
+    </div>
   );
 };
 
